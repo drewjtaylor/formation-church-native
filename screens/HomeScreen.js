@@ -12,6 +12,7 @@ const HomeScreen = (props) => {
   const { navigation } = props;
 
   return (
+    <>
     <SafeAreaView style={styles.container}>
       <Image
         style={styles.mainImage}
@@ -45,18 +46,15 @@ const HomeScreen = (props) => {
           </View>
         </Card>
       </ScrollView>
-      <Button
-        title="Upcoming events"
-        onPress={() => navigation.navigate("Events")}
-      />
     </SafeAreaView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50,
+    marginTop: 30,
   },
   Headertext: {
     fontSize: 25,
