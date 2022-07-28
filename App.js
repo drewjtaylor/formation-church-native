@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
 import EventsPage from "./screens/EventsPage";
+import Directory from "./screens/Directory";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -14,6 +15,7 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   const Stack = createStackNavigator();
+
   return (
     <NavigationContainer style={styles.container}>
       <Tab.Navigator initialRouteName="Home" screenOptions={screenOptions}>
@@ -24,7 +26,7 @@ export default function App() {
             tabBarLabel: "Home",
             tabBarLabelStyle: { color: "#4F4D8C" },
             tabBarIcon: () => (
-              <Icon name="home" type="font-awesome" color="#4F4D8C" />
+              <Icon name="home" type="font-awesome" color={iconColor} />
             ),
           }}
         />
@@ -35,7 +37,18 @@ export default function App() {
             tabBarLabel: "Events",
             tabBarLabelStyle: { color: "#4F4D8C" },
             tabBarIcon: () => (
-              <Icon name="calendar" type="font-awesome" color="#4F4D8C" />
+              <Icon name="calendar" type="font-awesome" color={iconColor} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Directory"
+          component={Directory}
+          options={{
+            tabBarLabel: "Directory",
+            tabBarLabelStyle: { color: "#4F4D8C" },
+            tabBarIcon: () => (
+              <Icon name="address-card" type="font-awesome" color={iconColor} />
             ),
           }}
         />
@@ -44,6 +57,8 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+const iconColor = "#4F4D8C";
 
 const screenOptions = {
   headerTintColor: "white",
