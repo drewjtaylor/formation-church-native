@@ -1,5 +1,5 @@
 import users from "../demodata/demoUsers";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { Text, StyleSheet, FlatList } from "react-native";
 import { Card, Image } from "react-native-elements";
 
 const Directory = () => {
