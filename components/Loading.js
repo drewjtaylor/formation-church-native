@@ -3,7 +3,7 @@ import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 const Loading = () => {
   return (
     <View style={styles.loadingView}>
-        <ActivityIndicator size='large' color='#5637DD' />
+        <ActivityIndicator size='large' color='#4F4D8C' />
         <Text style={styles.loadingText}>Loading...</Text>
     </View>
   )
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     loadingText: {
-        color: '#5637DD',
+        color: '#4F4D8C',
         fontSize: 14,
         fontWeight: 'bold'
     }
