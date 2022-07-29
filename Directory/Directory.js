@@ -2,6 +2,7 @@ import { Text, StyleSheet, FlatList } from "react-native";
 import { Card, Image } from "react-native-elements";
 import { useSelector } from "react-redux";
 import Loading from "../components/Loading";
+import { baseUrl } from "../baseURL";
 
 const Directory = () => {
   const users = useSelector((state) => state.users);
@@ -42,10 +43,10 @@ const Directory = () => {
           {fname} {isMember ? "is" : "is not"} a member
           {isMember ? null : " yet"}.
         </Text>
-        {/* <Image
+        <Image
           style={styles.avatarImage}
-          //   source={ `../demodata/${avatarImage}` }
-        /> */}
+            source={{ uri: baseUrl + avatarImage }}
+        />
       </Card>
     );
   };

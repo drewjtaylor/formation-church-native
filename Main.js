@@ -7,14 +7,24 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "react-native-elements";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchUsers } from "./Directory/directorySlice";
 
 // import { Platform } from 'react-native';
 // import { Constants } from 'expo-constants';
+
 
 const Tab = createBottomTabNavigator();
 
 export default function Main() {
   const Stack = createStackNavigator();
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchUsers())
+    }, [dispatch])
 
   return (
     <NavigationContainer style={styles.container}>
