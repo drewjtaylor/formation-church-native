@@ -1,14 +1,34 @@
-import users from "../demodata/demoUsers";
 import { Text, StyleSheet, FlatList } from "react-native";
 import { Card, Image } from "react-native-elements";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+import Loading from "../components/Loading";
 
 const Directory = () => {
+  const users = useSelector((state) => state.users);
 
-    // const users = useSelector((state) => state.users);
+  if (users.isLoading) {
+    return <Loading />;
+  }
 
-  const renderItem = ({ item }) => {
-    const {fname, lname, email, avatarImage, address1, address2, city, isMember} = item;
+  if (users.errMess) {
+    return (
+      <View>
+        <Text>{users.errMess}</Text>
+      </View>
+    );
+  }
+
+  const renderDirectoryItem = ({ item: user }) => {
+    const {
+      fname,
+      lname,
+      email,
+      avatarImage,
+      address1,
+      address2,
+      city,
+      isMember,
+    } = user;
     return (
       <Card>
         <Card.Title>{`${fname} ${lname}`}</Card.Title>
@@ -18,23 +38,25 @@ const Directory = () => {
         {address1 ? <Text>{address1}</Text> : null}
         {address2 ? <Text>{address2}</Text> : null}
         <Text>{city}</Text>
-        <Text>{fname} {isMember ? 'is' : 'is not'} a member{isMember? null : ' yet'}.</Text>
-        <Image
+        <Text>
+          {fname} {isMember ? "is" : "is not"} a member
+          {isMember ? null : " yet"}.
+        </Text>
+        {/* <Image
           style={styles.avatarImage}
-        //   source={ `../demodata/${avatarImage}` }
-        />
+          //   source={ `../demodata/${avatarImage}` }
+        /> */}
       </Card>
     );
   };
 
   return (
     <FlatList
-      data={users}
-      renderItem={renderItem}
+      data={users.usersArray}
+      renderItem={renderDirectoryItem}
       keyExtractor={(item) => item.id.toString()}
     />
   );
-
 };
 
 const styles = StyleSheet.create({

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { eventsReducer } from '../Events/eventSlice';
+import { usersReducer } from '../Directory/directorySlice';
 
 export const store = configureStore({
     reducer: {
-        events: eventsReducer,
+        users: usersReducer
     }
 });

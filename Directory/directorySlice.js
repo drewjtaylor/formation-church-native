@@ -1,35 +1,16 @@
-import users from "../demodata/demoUsers";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { baseUrl } from "../baseURL";
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   const response = await fetch(baseUrl + "users");
+  console.log(`The fetchUsers response is ${JSON.stringify(response)}`);
   return response.json();
 });
 
-const initialState = {
-  usersArray: users,
-};
-
 const usersSlice = createSlice({
   name: "users",
-  initialState,
-  reducers: {
-    addUser: (state, action) => {
-      const newUser = {
-        id: state.usersArray.length + 1,
-        ...action.payload,
-      };
-      state.usersArray.push(newUser);
-    },
-    toggleIsMember: (state, action) => {
-      state.usersArray[action.payload].isMember =
-        !state.usersArray[action.payload].isMember; //Payload should give the id number of the user
-    },
-    toggleIsAdmin: (state, action) => {
-      state.usersArray[action.payload].isAdmin =
-        !state.usersArray[action.payload].isAdmin; //Payload should give the id number of the user
-    },
-  },
+  initialState: { isLoading: true, errMess: null, usersArray: [] },
+  reducers: {},
   extraReducers: {
     [fetchUsers.pending]: (state) => {
       state.isLoading = true;
@@ -37,7 +18,7 @@ const usersSlice = createSlice({
     [fetchUsers.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.errMess = null;
-      state.campsitesArray = action.payload;
+      state.usersArray = action.payload;
     },
     [fetchUsers.rejected]: (state, action) => {
       state.isLoading = false;
@@ -47,7 +28,3 @@ const usersSlice = createSlice({
 });
 
 export const usersReducer = usersSlice.reducer;
-
-export const { addUser, toggleIsAdmin, toggleIsMember } = usersSlice.actions;
-
-export const SelectAllUsers = (state) => state.users.usersArray;
