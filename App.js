@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
 import EventsPage from "./screens/EventsPage";
-import Directory from "./screens/Directory";
+import DirectoryScreen from './screens/DirectoryScreen';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -43,7 +43,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Directory"
-          component={Directory}
+          component={DirectoryScreen}
           options={{
             tabBarLabel: "Directory",
             tabBarLabelStyle: { color: "#4F4D8C" },
