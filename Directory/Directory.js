@@ -45,7 +45,7 @@ const Directory = () => {
         </Text>
         <Image
           style={styles.avatarImage}
-            source={{ uri: baseUrl + avatarImage }}
+            source={{ uri: baseUrl + '/images/' + avatarImage }}
         />
       </Card>
     );
