@@ -3,9 +3,10 @@ import { Button, Card } from "react-native-elements";
 import { demoEvents } from "../demodata/demoEvents";
 
 const EventsPage = ({navigation}) => {
-  return (
+      return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.mainTitle}>Welcome to the upcoming Events page.</Text>
+      <Button title="Add an Event" containerStyle={{borderRadius: 0, borderWidth: 0}}/>
       <Text>
         If there are any upcoming events, or cancelled church gatherings, you
         can find that information here.
