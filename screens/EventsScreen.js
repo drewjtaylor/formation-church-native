@@ -7,9 +7,7 @@ import {
   StatusBar,
 } from "react-native";
 import { Button } from "react-native-elements";
-import { useSelector } from "react-redux";
 import EventList from "../Events/EventList";
-import { addEvent } from "../Events/eventSlice";
 
 const EventsScreen = ({ navigation }) => {
   return (

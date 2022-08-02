@@ -4,7 +4,6 @@ import Loading from "../components/Loading";
 import * as Animateable from "react-native-animatable";
 import { FlatList } from "react-native-gesture-handler";
 import { Text } from 'react-native';
-import { addEvent } from "./eventSlice";
 
 const EventList = () => {
   const events = useSelector((state) => state.events);
