@@ -5,10 +5,6 @@ import * as ImagePicker from 'expo-image-picker';
 export default function ImagePickerExample() {
   const [image, setImage] = useState(null);
 
-    const PickImage = async () => {
-        let result = await ImagePicker.launchCameraAsync
-    }
-
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchCameraAsync({

@@ -3,6 +3,7 @@ import { Card, Image } from "react-native-elements";
 import { useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import { baseUrl } from "../baseURL";
+import * as Animatable from 'react-native-animatable';
 
 const Directory = () => {
   const users = useSelector((state) => state.users);
@@ -34,24 +35,25 @@ const Directory = () => {
       state
     } = user;
     return (
-      <Card>
-        <Card.Title>{`${fname} ${lname}`}</Card.Title>
-        <Card.Divider />
-        {email ? <Text>Email: {email}</Text> : null}
-        {phone ? <Text>Phone: {phone}</Text> : null}
-        {address1 ? <Text>Address:</Text> : null}
-        {address1 ? <Text>{address1}</Text> : null}
-        {address2 ? <Text>{address2}</Text> : null}
-        {city || zip ? <Text>{city}, {state} {zip}</Text> : null}
-        <Text>
-          {fname} {isMember ? "is" : "is not"} a member
-          {isMember ? null : " yet"}.
-        </Text>
-        <Image
-          style={styles.avatarImage}
-            source={{ uri: baseUrl + '/images/' + avatarImage }}
-        />
-      </Card>
+      <Animatable.View animation='fadeIn' duration={1000} delay={500}>
+          <Card>
+            <Card.Title>{`${fname} ${lname}`}</Card.Title>
+            <Card.Divider />
+            {email ? <Text>Email: {email}</Text> : null}
+            {phone ? <Text>Phone: {phone}</Text> : null}
+            {address1 ? <Text>Address:</Text> : null}
+            {address1 ? <Text>{address1}</Text> : null}
+            {address2 ? <Text>{address2}</Text> : null}
+            {city || zip ? <Text>{city}, {state} {zip}</Text> : null}
+            <Text>
+              {isMember ? `${fname} is a member` : null}
+            </Text>
+            {avatarImage ? <Image
+              style={styles.avatarImage}
+                source={{ uri: baseUrl + '/images/' + avatarImage }}
+            /> : null}
+          </Card>
+      </Animatable.View>
     );
   };
 

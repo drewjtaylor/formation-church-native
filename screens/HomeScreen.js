@@ -7,6 +7,7 @@ import {
   ScrollView,
 } from "react-native";
 import { Button, Card } from "react-native-elements";
+import * as Animatable from 'react-native-animatable';
 
 const HomeScreen = (props) => {
   const { navigation } = props;
@@ -20,31 +21,35 @@ const HomeScreen = (props) => {
       />
       <Text style={styles.Headertext}>Formation Church</Text>
       <ScrollView>
-        <Card containerStyle={styles.card}>
-          <View style={{ alignItems: "center" }}>
-            <Card.Title style={styles.cardTitleText}>
-              Christ-centered in what we do
-            </Card.Title>
-            <Card.Image
-              style={styles.crossImage}
-              source={require("../assets/img/cross-greater-than.png")}
-            ></Card.Image>
-            <Text style={styles.cardText}>
-              Community-focused in how we do it
-            </Text>
-          </View>
-        </Card>
-        <Card containerStyle={styles.card}>
-          <View style={{ alignItems: "center" }}>
-            <Card.Title style={styles.cardTitleText}>
-              Join us in St. Pete/Tampa Bay!
-            </Card.Title>
-            <Card.Image
-              style={styles.cityImage}
-              source={require("../assets/img/assist-tampa-600x401.jpg")}
-            />
-          </View>
-        </Card>
+        <Animatable.View animation='pulse' duration={2000} delay={500}>
+            <Card containerStyle={styles.card}>
+              <View style={{ alignItems: "center" }} animation>
+                <Card.Title style={styles.cardTitleText}>
+                  Christ-centered in what we do
+                </Card.Title>
+                <Card.Image
+                  style={styles.crossImage}
+                  source={require("../assets/img/cross-greater-than.png")}
+                ></Card.Image>
+                <Text style={styles.cardText}>
+                  Community-focused in how we do it
+                </Text>
+              </View>
+            </Card>
+        </Animatable.View>
+        <Animatable.View animation='pulse' duration={2000} delay={500}>
+            <Card containerStyle={styles.card}>
+              <View style={{ alignItems: "center" }}>
+                <Card.Title style={styles.cardTitleText}>
+                  Join us in St. Pete/Tampa Bay!
+                </Card.Title>
+                <Card.Image
+                  style={styles.cityImage}
+                  source={require("../assets/img/assist-tampa-600x401.jpg")}
+                />
+              </View>
+            </Card>
+        </Animatable.View>
       </ScrollView>
     </SafeAreaView>
     </>
