@@ -7,23 +7,23 @@ export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
 });
 
 const usersSlice = createSlice({
-    name: "campsites",
-    initialState: { isLoading: true, errMess: null, usersArray: [] },
-    reducers: {},
-    extraReducers: {
-      [fetchUsers.pending]: (state) => {
-        state.isLoading = true;
-      },
-      [fetchUsers.fulfilled]: (state, action) => {
-        state.isLoading = false;
-        state.errMess = null;
-        state.usersArray = action.payload;
-      },
-      [fetchUsers.rejected]: (state, action) => {
-        state.isLoading = false;
-        state.errMess = action.error ? action.error.message : "Fetch failed";
-      },
+  name: "users",
+  initialState: { isLoading: true, errMess: null, usersArray: [] },
+  reducers: {},
+  extraReducers: {
+    [fetchUsers.pending]: (state) => {
+      state.isLoading = true;
     },
-  });
+    [fetchUsers.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.errMess = null;
+      state.usersArray = action.payload;
+    },
+    [fetchUsers.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.errMess = action.error ? action.error.message : "Fetch failed";
+    },
+  },
+});
 
 export const usersReducer = usersSlice.reducer;

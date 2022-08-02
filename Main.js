@@ -10,6 +10,7 @@ import { Icon } from "react-native-elements";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "./Directory/directorySlice";
+import { fetchEvents } from "./Events/eventSlice";
 
 // import { Platform } from 'react-native';
 // import { Constants } from 'expo-constants';
@@ -23,7 +24,8 @@ export default function Main() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchUsers())
+        dispatch(fetchUsers());
+        dispatch(fetchEvents())
     }, [dispatch])
 
   return (
