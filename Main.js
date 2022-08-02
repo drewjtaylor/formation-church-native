@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
-import EventsPage from "./screens/EventsPage";
+import EventsScreen from "./screens/EventsScreen";
 import DirectoryScreen from './screens/DirectoryScreen';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -42,7 +42,7 @@ export default function Main() {
         />
         <Tab.Screen
           name="Events"
-          component={EventsPage}
+          component={EventsScreen}
           options={{
             tabBarLabel: "Events",
             tabBarLabelStyle: { color: "#4F4D8C" },

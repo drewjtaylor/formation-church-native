@@ -2,7 +2,7 @@ import { FlatList, Text, View, StyleSheet, SafeAreaView, StatusBar } from "react
 import { Button, Card } from "react-native-elements";
 import { demoEvents } from "../demodata/demoEvents";
 
-const EventsPage = ({navigation}) => {
+const EventsScreen = ({navigation}) => {
       return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.mainTitle}>Welcome to the upcoming Events page.</Text>
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default EventsPage;
+export default EventsScreen;

@@ -24,21 +24,25 @@ const Directory = () => {
       fname,
       lname,
       email,
+      phone,
       avatarImage,
       address1,
       address2,
       city,
       isMember,
+      zip,
+      state
     } = user;
     return (
       <Card>
         <Card.Title>{`${fname} ${lname}`}</Card.Title>
         <Card.Divider />
-        <Text>Email: {email}</Text>
+        {email ? <Text>Email: {email}</Text> : null}
+        {phone ? <Text>Phone: {phone}</Text> : null}
         {address1 ? <Text>Address:</Text> : null}
         {address1 ? <Text>{address1}</Text> : null}
         {address2 ? <Text>{address2}</Text> : null}
-        <Text>{city}</Text>
+        {city || zip ? <Text>{city}, {state} {zip}</Text> : null}
         <Text>
           {fname} {isMember ? "is" : "is not"} a member
           {isMember ? null : " yet"}.

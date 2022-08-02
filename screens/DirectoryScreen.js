@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Directory from '../Directory/Directory';
-
+import ImagePickerExample from '../components/ImagePicker';
 
 const DirectoryScreen = () => {
   return (
     <>
+    <ImagePickerExample />
     <Text style={styles.heading}>Welcome to the Church Directory</Text>
     <Text style={styles.subHeading}>If you'd like to add your information, tap here.</Text>
     <Directory />

@@ -1,21 +1,26 @@
-import demoEvents from "../demodata/demoEvents";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { baseUrl } from "../baseURL";
 
-const initialState = {
-    eventsArray: demoEvents
-};
+export const fetchEvents = createAsyncThunk(
+    "events/fetchEvents",
+    async () => {
+        const response = await fetch(baseUrl + 'events');
+        return response.json();
+    }
+)
+
 
 const eventsSlice = createSlice({
     name: 'events',
-    initialState,
+    initialState: { isLoading: true, errMess: null, eventsArray: [] },
     reducers: {
-        addEvent: (state, action) => {
-            const newEvent = {
-                id: state.eventsArray.length+1,
-                ...action.payload
-            };
-            state.eventsArray.push(newEvent);
-        }
+        // addEvent: (state, action) => {
+        //     const newEvent = {
+        //         id: state.eventsArray.length+1,
+        //         ...action.payload
+        //     };
+        //     state.eventsArray.push(newEvent);
+        // }
     }
 })
 
