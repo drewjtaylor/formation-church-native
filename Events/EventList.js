@@ -8,6 +8,13 @@ import { Text } from 'react-native';
 const EventList = () => {
   const events = useSelector((state) => state.events);
 
+    const sortedEvents = [...state.events.eventsArray.sort((a,b) => {
+        const dateA = a.date;
+        const dateB = b.date;
+        return dateA < dateB ? -1 : dateA > dateB ? 1 : 0;
+    })]
+    console.log(`sortedEvents is: ${sortedEvents}`);
+
   if (events.isLoading) {
     return <Loading />;
   }
@@ -42,11 +49,6 @@ const EventList = () => {
 
   </FlatList>
 
-
-
-  const sortedEvents = [...allEvents]; // Makes a copy of all events so we're not mutating anything in the state with "sort()"
-
-  sortedEvents.sort((a, b) => Number(a.date) - Number(b.date)); // Now we have "sortedEvents" to use, which is an array in date order
 
   return sortedEvents.map((event) => {
     const displayTime = event.date.toLocaleTimeString("en-us", {
