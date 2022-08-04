@@ -6,6 +6,25 @@ export const fetchEvents = createAsyncThunk("events/fetchEvents", async () => {
   return response.json();
 });
 
+export const createEvent = createAsyncThunk("events/createEvent", async () => {
+    const response = await fetch(
+        baseUrl + "events",
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify({
+                id: 201,
+                date: 'fake date',
+                title: 'test-title',
+                description: 'test-description'
+            })
+        }
+    );
+    return response.json();
+});
+
 const eventsSlice = createSlice({
   name: "events",
   initialState: { isLoading: true, errMess: null, eventsArray: [] },
@@ -22,7 +41,19 @@ const eventsSlice = createSlice({
     [fetchEvents.rejected]: (state, action) => {
       state.isLoading = false;
       state.errMess = action.error ? action.error.message : "Fetch failed";
-    }
+    },
+    [createEvent.pending]: (state) => {
+        state.isLoading = true;
+      },
+      [createEvent.fulfilled]: (state, action) => {
+        state.isLoading = false;
+        state.errMess = null;
+        console.log(`The "action.payload" is ${action.payload}`);
+      },
+      [createEvent.rejected]: (state, action) => {
+        state.isLoading = false;
+        state.errMess = action.error ? action.error.message : "Fetch failed";
+      }
   },
 });
 

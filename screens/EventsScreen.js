@@ -1,25 +1,31 @@
 import {
-  FlatList,
   Text,
-  View,
   StyleSheet,
-  SafeAreaView,
   StatusBar,
 } from "react-native";
 import { Button } from "react-native-elements";
 import EventList from "../Events/EventList";
+import * as Animateable from "react-native-animatable";
+import { createEvent } from "../Events/eventSlice";
+import { useDispatch } from "react-redux";
 
 const EventsScreen = ({ navigation }) => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.mainTitle}>Welcome to the upcoming Events page.</Text>
-      <Button
-        title="Add an Event"
-        containerStyle={{ borderRadius: 0, borderWidth: 0 }}
-        onPress={() => {
-          console.log(`You just pushed a button that doesn't do anything yet`);
-        }}
-      />
+    const dispatch = useDispatch();
+    const addNewEvent = () => dispatch(createEvent());
+
+    return (
+    <>
+      <Text style={styles.mainTitle}>Check out our upcoming events</Text>
+      <Animateable.View animation='rubberBand' delay={1500}>
+        <Button
+            title="Add an Event"
+            containerStyle={{ borderRadius: 0, borderWidth: 0 }}
+            onPress={() => {
+            console.log(`Button pressed...`);
+            addNewEvent();
+            }}
+        />
+      </Animateable.View>
       <Text>
         If there are any upcoming events, or cancelled church gatherings, you
         can find that information here.
@@ -30,8 +36,7 @@ const EventsScreen = ({ navigation }) => {
         title="Back to home page"
         onPress={() => navigation.navigate("Home")}
       />
-      <FlatList></FlatList>
-    </SafeAreaView>
+    </>
   );
 };
 
