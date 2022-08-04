@@ -34,6 +34,9 @@ const EventList = () => {
         <Card>
           <Card.Title>{title}</Card.Title>
           <Card.Title>
+            {eventDate.toLocaleDateString([], {hour12: true})}
+          </Card.Title>
+          <Card.Title>
             {eventDate.toLocaleTimeString([], {hour12: true})}
           </Card.Title>
           <Card.Divider />

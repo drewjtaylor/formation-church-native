@@ -11,7 +11,8 @@ import { useDispatch } from "react-redux";
 
 const EventsScreen = ({ navigation }) => {
     const dispatch = useDispatch();
-    const addNewEvent = () => dispatch(createEvent());
+    // addNewEvent requires parameters: (title: string, eventId: int, date: string or date object, description: string)
+    const addNewEvent = () => dispatch(createEvent({eventId: 555, title: 'test title', date: new Date(), description: 'New description'}));
 
     return (
     <>
