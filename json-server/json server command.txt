@@ -1,0 +1,3 @@
+JSON server start command (run from json-server folder):
+
+json-server -H 0.0.0.0 --watch db.json -p 3001 -d 2500

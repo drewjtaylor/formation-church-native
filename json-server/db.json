@@ -1,0 +1,108 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "fname": "Andrew",
+      "lname": "Taylor",
+      "username": "drewjtaylor",
+      "email": "drew.j.taylor1@gmail.com",
+      "phone": "555-123-4789",
+      "address1": "123 Main Street",
+      "address2": "Apartment 3",
+      "city": "Pinellas Park",
+      "state": "FL",
+      "zip": "33781",
+      "avatarImage": "drewjtaylorAvatar.jpg",
+      "isAdmin": true,
+      "isMember": true
+    },
+    {
+      "id": 1,
+      "fname": "John",
+      "lname": "Smith",
+      "username": "jsmithy",
+      "address1": "223 52nd Street",
+      "city": "Tampa",
+      "state": "FL",
+      "zip": "34691",
+      "email": "",
+      "avatarImage": "JohnSmithAvatar.jpg",
+      "isAdmin": false,
+      "isMember": true
+    },
+    {
+      "id": 2,
+      "fname": "Suzy",
+      "lname": "Queue",
+      "username": "qtasticsue",
+      "email": "suzy@mailinator.com",
+      "phone": "555-123-3482",
+      "avatarImage": "SuzyQAvatar.jpg",
+      "isAdmin": false,
+      "isMember": true
+    },
+    {
+      "id": 3,
+      "fname": "Heather",
+      "lname": "Anderson",
+      "username": "unicornsforever24",
+      "email": "isitarhinonoaunicorn@mailinator.com",
+      "phone": "555-123-9876",
+      "avatarImage": "unicorn.png",
+      "isAdmin": false,
+      "isMember": false
+    },
+    {
+      "id": 4,
+      "fname": "Elaine",
+      "lname": "Kilmar",
+      "username": "kilmanjaro",
+      "email": "anotherfakeemail@mailinator.com",
+      "avatarImage": "AliceKilmarAvatar.png",
+      "isAdmin": false,
+      "isMember": false
+    },
+    {
+      "id": 5,
+      "fname": "Harry",
+      "lname": "Houdini",
+      "username": "magicman",
+      "email": "",
+      "avatarImage": "",
+      "isAdmin": false,
+      "isMember": false
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "date": "2022-08-05T22:00:00.000Z",
+      "title": "Youth Board Game Night",
+      "description": "Bring a snack and your favorite game. This event is hosted by the youth group, but everyone is invited. Whether your game is checkers, Catan, or Axis & Allies, there's something for you"
+    },
+    {
+      "id": 2,
+      "date": "2022-08-27T23:00:00.000Z",
+      "title": "NO WEDNESDAY NIGHT CHURCH",
+      "description": "Pastor Frank will be out of town, and there will also be no child care. If you are interested in filling in, please reach out to the main church number. If we are able to find child-care, we will remove this event from the calendar."
+    },
+    {
+      "id": 3,
+      "date": "2022-08-10T16:30:00.000Z",
+      "title": "Lunch Potluck",
+      "description": "Bring a main dish and a dessert. Crock pots can be left in the learning center. Drinks will be provided. Any help setting up chairs at 12:30 would be much appreciated!"
+    },
+    {
+      "id": 4,
+      "date": "2022-08-30T20:30:00.000Z",
+      "title": "Downtown Ministry",
+      "description": "We will be meeting our sister church at the Pier in St. Petersburg at 4:30 PM to help them with a work day. We will provide water, snacks, and jobs. Bring sunscreen, probably a hat, and any lawn maintenance equipment you have."
+    },
+    {
+      "id": 5,
+      "date": "2022-08-20T16:20:26.836Z",
+      "title": "Graduate Nucamp!",
+      "description": "Completed all courses"
+    }
+  ]
+}
