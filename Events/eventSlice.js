@@ -22,7 +22,7 @@ export const createEvent = createAsyncThunk(
         description: description,
       }),
     });
-    console.log(`The 'response' in JSON string form is ${JSON.stringify(response, '', 2)}`)
+    // console.log(`The 'response' in JSON string form is ${JSON.stringify(response, '', 2)}`)
     return response.json();
   }
 );
@@ -50,7 +50,7 @@ const eventsSlice = createSlice({
     [createEvent.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.errMess = null;
-      console.log(`The "action.payload" is ${action.payload}`);
+    //   console.log(`The "action.payload" is ${JSON.stringify(action.payload, '', 2)}`);
     },
     [createEvent.rejected]: (state, action) => {
       state.isLoading = false;
