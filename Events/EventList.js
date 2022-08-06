@@ -4,11 +4,12 @@ import Loading from "../components/Loading";
 import * as Animateable from "react-native-animatable";
 import { FlatList } from "react-native-gesture-handler";
 import { Text, View } from "react-native";
+import formatDateTime from "../util/formatDateTime";
 
 const EventList = () => {
   const events = useSelector((state) => state.events);
 
-  //Creates a copy of eventsArray and sorts it for use in the list
+  // Creates a copy of eventsArray and sorts it for use in the list
   const sortedEvents = [...events.eventsArray];
   sortedEvents.sort((a, b) => {
     return new Date(a.date) - new Date(b.date);
@@ -34,10 +35,7 @@ const EventList = () => {
         <Card>
           <Card.Title>{title}</Card.Title>
           <Card.Title>
-            {eventDate.toLocaleDateString([], {hour12: true})}
-          </Card.Title>
-          <Card.Title>
-            {eventDate.toLocaleTimeString([], {hour12: true})}
+            {eventDate.toLocaleDateString()} at {formatDateTime(eventDate)}
           </Card.Title>
           <Card.Divider />
           <Text>{description}</Text>

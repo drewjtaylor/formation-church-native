@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { View, Text, StyleSheet, Button, TextInput } from "react-native";
+import { View, Text, StyleSheet, Button, TextInput, Alert } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { createEvent } from "./eventSlice";
+import formatDateTime from '../util/format12hourTime';
 
 const AddEventModal = () => {
   const [title, setTitle] = useState("");
@@ -26,11 +27,14 @@ const AddEventModal = () => {
     setEventTime(currentTime);
   };
   
-  const eventsList = useSelector((state) => state.events);
+    // Grab events from the state and get ready to work with redux
+    const eventsList = useSelector((state) => state.events);
     const dispatch = useDispatch();
+
     const handleNewEvent = () => {
-    console.log(eventsList.eventsArray);
     dispatch(createEvent({title: title, eventId: eventsList.length+1, date: eventDate, description: description}));
+    
+    
     console.log(`The title is: ${title}`);
     console.log(`The description is: ${description}`);
     console.log(`The date is: ${eventDate}`);
@@ -85,7 +89,7 @@ const AddEventModal = () => {
         <Text style={styles.formLabel}>Time:</Text>
         <Button
           onPress={() => setShowTimePicker(!showTimePicker)}
-          title={eventTime.toLocaleTimeString("en-US").slice(0, eventTime.toLocaleTimeString("en-US").length-3)}
+          title={formatDateTime(eventDate)}
           color="blue"
           accessibilityLabel="Tap me to select an event time"
         />
