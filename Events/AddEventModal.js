@@ -5,7 +5,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { createEvent } from "./eventSlice";
 import formatDateTime from '../util/formatDateTime';
 
-const AddEventModal = () => {
+const AddEventModal = ({setShowModal}) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [eventDate, setEventDate] = useState(new Date());
@@ -33,8 +33,8 @@ const AddEventModal = () => {
 
     const handleNewEvent = () => {
     dispatch(createEvent({title: title, eventId: eventsList.length+1, date: eventDate, description: description}));
-    
-    
+    setShowModal(false);
+
     console.log(`The title is: ${title}`);
     console.log(`The description is: ${description}`);
     console.log(`The date is: ${eventDate}`);
@@ -89,7 +89,7 @@ const AddEventModal = () => {
         <Text style={styles.formLabel}>Time:</Text>
         <Button
           onPress={() => setShowTimePicker(!showTimePicker)}
-          title={formatDateTime(eventDate)}
+          title={formatDateTime(eventTime)}
           color="blue"
           accessibilityLabel="Tap me to select an event time"
         />

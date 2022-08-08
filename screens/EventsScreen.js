@@ -53,7 +53,7 @@ const EventsScreen = ({ navigation }) => {
         visible={showModal}
         onRequestClose={toggleModal}
       >
-        <AddEventModal />
+        <AddEventModal setShowModal={setShowModal} />
         <Button
           onPress={toggleModal}
           title="Cancel"
