@@ -22,7 +22,8 @@ export const createEvent = createAsyncThunk(
         description: description,
       }),
     });
-    // console.log(`The 'response' in JSON string form is ${JSON.stringify(response, '', 2)}`)
+    console.log(`The 'response' in JSON string form is ${JSON.stringify(response, '', 2)}`)
+    // Call to reducer "addEvent" to cause the local redux store to update in ADDITION to the server
     return response.json();
   }
 );
@@ -30,7 +31,9 @@ export const createEvent = createAsyncThunk(
 const eventsSlice = createSlice({
   name: "events",
   initialState: { isLoading: true, errMess: null, eventsArray: [] },
-  reducers: {},
+  reducers: {
+    // Update existing event with a push to eventsArray (name it AddEvent)
+  },
   extraReducers: {
     [fetchEvents.pending]: (state) => {
       state.isLoading = true;
@@ -60,5 +63,3 @@ const eventsSlice = createSlice({
 });
 
 export const eventsReducer = eventsSlice.reducer;
-
-// export const { addEvent } = eventsSlice.actions;

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { View, Text, StyleSheet, Button, TextInput, Alert } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { createEvent } from "./eventSlice";
-import formatDateTime from '../util/format12hourTime';
+import formatDateTime from '../util/formatDateTime';
 
 const AddEventModal = () => {
   const [title, setTitle] = useState("");
