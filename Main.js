@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
 import EventsScreen from "./screens/EventsScreen";
-import DirectoryScreen from './screens/DirectoryScreen';
+import DirectoryScreen from "./screens/DirectoryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -11,22 +11,22 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "./Directory/directorySlice";
 import { fetchEvents } from "./Events/eventSlice";
+import AboutScreen from "./screens/AboutScreen";
 
 // import { Platform } from 'react-native';
 // import { Constants } from 'expo-constants';
-
 
 const Tab = createBottomTabNavigator();
 
 export default function Main() {
   const Stack = createStackNavigator();
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchUsers());
-        dispatch(fetchEvents())
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(fetchUsers());
+    dispatch(fetchEvents());
+  }, [dispatch]);
 
   return (
     <NavigationContainer style={styles.container}>
@@ -58,6 +58,17 @@ export default function Main() {
           component={DirectoryScreen}
           options={{
             tabBarLabel: "Directory",
+            tabBarLabelStyle: { color: "#4F4D8C" },
+            tabBarIcon: () => (
+              <Icon name="address-card" type="font-awesome" color={iconColor} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="About"
+          component={AboutScreen}
+          options={{
+            tabBarLabel: "About",
             tabBarLabelStyle: { color: "#4F4D8C" },
             tabBarIcon: () => (
               <Icon name="address-card" type="font-awesome" color={iconColor} />
