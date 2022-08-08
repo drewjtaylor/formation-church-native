@@ -4,14 +4,13 @@ import HomeScreen from "./screens/HomeScreen";
 import EventsScreen from "./screens/EventsScreen";
 import DirectoryScreen from "./screens/DirectoryScreen";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "react-native-elements";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "./Directory/directorySlice";
 import { fetchEvents } from "./Events/eventSlice";
-import AboutScreen from "./screens/AboutScreen";
+import AboutScreen from "./screens/AboutScreens/MainAboutNavigator";
 
 // import { Platform } from 'react-native';
 // import { Constants } from 'expo-constants';
@@ -19,7 +18,6 @@ import AboutScreen from "./screens/AboutScreen";
 const Tab = createBottomTabNavigator();
 
 export default function Main() {
-  const Stack = createStackNavigator();
 
   const dispatch = useDispatch();
 

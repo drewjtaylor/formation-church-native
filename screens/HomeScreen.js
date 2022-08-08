@@ -6,7 +6,7 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { Button, Card } from "react-native-elements";
+import { Card } from "react-native-elements";
 import * as Animatable from 'react-native-animatable';
 
 const HomeScreen = (props) => {
