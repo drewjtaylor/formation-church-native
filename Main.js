@@ -69,7 +69,7 @@ export default function Main() {
             tabBarLabel: "About",
             tabBarLabelStyle: { color: "#4F4D8C" },
             tabBarIcon: () => (
-              <Icon name="address-card" type="font-awesome" color={iconColor} />
+              <Icon name="question" type="font-awesome" color={iconColor} />
             ),
           }}
         />
