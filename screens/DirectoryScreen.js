@@ -16,7 +16,7 @@ const DirectoryScreen = () => {
     <>
       <View>
         <Text style={styles.heading}>Welcome to the Church Directory</Text>
-        <Pressable onPress={emailDirectoryInfo}>
+        <Pressable onPress={emailDirectoryInfo} style={{backgroundColor: 'black'}}>
           <Text style={styles.subHeading}>
             If you'd like to add your information, or your entry needs
             updated/missing information, please tap here to email us.
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   subHeading: {
     fontSize: 18,
     textAlign: "center",
+    color: 'white'
   },
 });
 
