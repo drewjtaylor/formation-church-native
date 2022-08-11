@@ -8,7 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const screenOptions = {
   headerTintColor: "white",
-  headerStyle: { backgroundColor: "#5264A3" },
+  headerStyle: { backgroundColor: "#5264A3"},
 };
 
 const AboutScreen = () => {
