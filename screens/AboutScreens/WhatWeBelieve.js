@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Divider } from "react-native-elements";
 
-const CustomDivider = () => <Divider width={2} style={{ marginBottom: 10 }} />;
+export const CustomDivider = () => <Divider width={2} style={{ marginBottom: 10 }} />;
 
 const WhatWeBelieveScreen = () => {
   return (

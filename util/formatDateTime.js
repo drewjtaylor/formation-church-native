@@ -1,5 +1,5 @@
-// At least on my emulator, the time was never showing up as 12-hour format.
-// This function takes a date object, and coerces the 12-hour format out of it
+// At least on my emulator, the time was never showing up as 12-hour format, even with the appropriate options for "toLocaleString"
+// This function takes a date object, and coerces the 12-hour format out of it "forcefully"
 
 export default function formatDateTime(date) {
     var hours = date.getHours();
